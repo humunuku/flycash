@@ -84,28 +84,25 @@ public class FlyCash {
 		return tempProducts;
 	}
 
-
 	public void plotResults(Invoice invoice) {
-		
+
 		String headlineFormat = "%-15s%-10s%-15s%-15s%n";
 		String lastLineFormat = "%-40s%-15f";
 		String productsFormat = "%-15s%-10d%-15f%-15f%n";
-		
 
 		System.out.println("FlyCash");
 		System.out.println("===============================================");
-		System.out.printf(headlineFormat, "Produkt", "Anzahl","Einzelpreis","Summe");
+		System.out.printf(headlineFormat, "Produkt", "Anzahl", "Einzelpreis", "Summe");
 
 		for (int i = 0; i < invoice.products.size(); i++) {
 			String name = invoice.products.get(i).name;
 			int amount = invoice.products.get(i).amount;
 			double price = invoice.products.get(i).price;
-			double productsPrize =  invoice.getProductsPrize(amount, price);
+			double productsPrize = invoice.getProductsPrize(amount, price);
 			System.out.printf(productsFormat, name, amount, price, productsPrize);
 		}
-		
-		System.out.printf(lastLineFormat,"SUMME",invoice.getTotalPrize());
-	}
 
+		System.out.printf(lastLineFormat, "SUMME", invoice.getTotalPrize());
+	}
 
 }

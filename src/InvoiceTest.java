@@ -9,9 +9,8 @@ import org.junit.jupiter.api.Test;
 
 class InvoiceTest {
 
-
 	Invoice invoice;
-	
+
 	@BeforeEach
 	void setUp() {
 		List<Product> testProducts = new ArrayList<Product>();
@@ -29,14 +28,14 @@ class InvoiceTest {
 		double result = invoice.getTotalAmount();
 		assertEquals(10, result);
 	}
-	
+
 	@Test
 	@DisplayName("Calculate total prize.")
 	void shouldCalculateCorrectPrize() {
 		double result = invoice.getTotalPrize();
 		assertEquals(22.90, result);
 	}
-	
+
 	@Test
 	@DisplayName("Check products of invoice.")
 	void shouldCalculateProperProducts() {
