@@ -41,7 +41,6 @@ public class FlyCash {
 
 			if (productName.isBlank()) {
 				break;
-
 			}
 
 			// Enter a valid prize.
@@ -87,8 +86,8 @@ public class FlyCash {
 	public void plotResults(Invoice invoice) {
 
 		String headlineFormat = "%-15s%-10s%-15s%-15s%n";
-		String lastLineFormat = "%-40s%-15f";
-		String productsFormat = "%-15s%-10d%-15f%-15f%n";
+		String productsFormat = "%-15s%-10d%-15.2f%-15.2f%n";
+		String lastLineFormat = "%-40s%-150.2f%n";
 
 		System.out.println("FlyCash");
 		System.out.println("===============================================");
@@ -101,8 +100,10 @@ public class FlyCash {
 			double productsPrize = invoice.getProductsPrize(amount, price);
 			System.out.printf(productsFormat, name, amount, price, productsPrize);
 		}
-
+		System.out.println("===============================================");
 		System.out.printf(lastLineFormat, "SUMME", invoice.getTotalPrize());
+		System.out.println("===============================================");
+
 	}
 
 }
